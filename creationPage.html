@@ -9,6 +9,33 @@
     <script src='main.js'></script>
 </head>
 <body>
-    test
+    <!--Tabs-->
+    <div id="output" class="divider">
+        <header class="tabs">
+            <table>
+                <tr>
+                    <th class="tabButtons" id="TCharSheet" onclick="openTab(sheet)">Character sheet</th>
+                    <th class="tabButtons" id="TSkill" onclick="openTab(skills)">Skills</th>
+                    <th class="tabButtons" id="TFeats" onclick="openTab(feats)">Feats</th>
+                </tr>
+            </table>
+        </header>
+        <!--Tab contents-->
+        
+            <div id="CharacterSheet">
+                <section id="portrait">portrait.temp</section>
+                <div id="classList">Class list.temp</div>
+                <div id="attributes">
+                    <div class="attribute">STR</div>
+                    <div class="attribute">DEX</div>
+                    <div class="attribute">CON</div>
+                    <div class="attribute">INT</div>
+                    <div class="attribute">WIS</div>
+                    <div class="attribute">CHA</div>
+                </div>
+                <div id="statList">statList</div>
+            </div>
+        </div>
+    <div id="input" class="divider">test</div>
 </body>
 </html>
