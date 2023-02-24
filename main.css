@@ -1,13 +1,22 @@
 .divider {
-  display: block;
-  width: 49%;
-  margin: 0px;
+  display: inline-block;
+  margin: 0%;
+  width: 50%;
+}
+
+#input {
+  float: right;
+  text-align: top;
+}
+
+#output {
+  float: left;
+  margin-right: 0;
 }
 
 h1 {
   align-content: center;
   display: grid;
-  justify-content: center;
 }
 
 h3 {
@@ -30,6 +39,8 @@ header {
 .tabButtons {
   background-color: yellow;
   width: 1%;
+  margin: 0px;
+  padding: 0px;
 }
 
 #portrait {
@@ -44,6 +55,10 @@ header {
   background-color: brown;
   display: grid;
   justify-content: end;
+}
+
+#attTabButtAdd #attTabButtLow {
+  width: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

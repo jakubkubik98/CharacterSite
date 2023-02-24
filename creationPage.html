@@ -6,9 +6,9 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <script src='creationPage.js'></script>
 </head>
-<body>
+<body id="body">
     <!--Tabs-->
     <div id="output" class="divider">
         <header class="tabs">
@@ -33,9 +33,80 @@
                     <div class="attribute">WIS</div>
                     <div class="attribute">CHA</div>
                 </div>
-                <div id="statList">statList</div>
+                <div id="statList">
+                    <table>
+                        <tr id="attrTableHeader" >
+                            <Th class="attTabHeadCell" colspan="2">STR</Th>
+                            <Th class="attTabHeadCell" colspan="2">DEX</Th>
+                            <Th class="attTabHeadCell" colspan="2">CON</Th>
+                            <Th class="attTabHeadCell" colspan="2">INT</Th>
+                            <Th class="attTabHeadCell" colspan="2">WIS</Th>
+                            <Th class="attTabHeadCell" colspan="2">CHA</Th>
+                        </tr>
+                        <tr>
+                            <td class="tabButtType" id="val_STR">10</td>
+                            <td class="tabButtType" id="val_DEX">10</td>
+                            <td class="tabButtType" id="val_CON">10</td>
+                            <td class="tabButtType" id="val_INT">10</td>
+                            <td class="tabButtType" id="val_WIS">10</td>
+                            <td class="tabButtType" id="val_CHA">10</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
-    <div id="input" class="divider">test</div>
+    <!--Edytor-->
+    <div id="input" class="divider">
+        <table>
+            <tr id="attrTableHeader" >
+                <Th class="attTabHeadCell" id="attOutCellSTR" colspan="2">STR</Th>
+                <Th class="attTabHeadCell" id="attOutCellDEX" colspan="2">DEX</Th>
+                <Th class="attTabHeadCell" id="attOutCellCON" colspan="2">CON</Th>
+                <Th class="attTabHeadCell" id="attOutCellINT" colspan="2">INT</Th>
+                <Th class="attTabHeadCell" id="attOutCellWIS" colspan="2">WIS</Th>
+                <Th class="attTabHeadCell" id="attOutCellCHA" colspan="2">CHA</Th>
+            </tr>
+            <tr>
+                <td class="tabButtType" rowspan="2" id="AttValSTR">10</td>
+                <td><button class="attTabButtAdd" id="valAddSTR" onclick="increaseAttVal(this.id)">
+                    +
+                </button></td>
+                <td class="tabButtType" id="AttValDEX" rowspan="2">10</td>
+                <td><button class="attTabButtAdd" id="valAddDEX" onclick="increaseAttVal(this.id)">+</button></td>
+                <td class="tabButtType" id="AttValCON" rowspan="2">10</td>
+                <td><button class="attTabButtAdd" id="valAddCON" onclick="increaseAttVal(this.id)">+</button></td>
+                <td class="tabButtType" id="AttValINT" rowspan="2">10</td>
+                <td><button class="attTabButtAdd" id="valAddINT" onclick="increaseAttVal(this.id)">+</button></td>
+                <td class="tabButtType" id="AttValWIS" rowspan="2">10</td>
+                <td><button class="attTabButtAdd" id="valAddWIS" onclick="increaseAttVal(this.id)">+</button></td>
+                <td class="tabButtType" id="AttValCHA" rowspan="2">10</td>
+                <td><button class="attTabButtAdd" id="valAddCHA" onclick="increaseAttVal(this.id)">+</button></td>
+            </tr>
+            <tr>
+                <td class="tabButtons" id="btt_STR"><button class="attTabButtLow" id="valDecSTR" onclick="decreaseAttVal(this.id)">-</button></td>
+                <td class="tabButtons" id="btt_DEX"><button class="attTabButtLow" id="valDecDEX" onclick="decreaseAttVal(this.id)">-</button></td>
+                <td class="tabButtons" id="btt_CON"><button class="attTabButtLow" id="valDecCON" onclick="decreaseAttVal(this.id)">-</button></td>
+                <td class="tabButtons" id="btt_INT"><button class="attTabButtLow" id="valDecINT" onclick="decreaseAttVal(this.id)">-</button></td>
+                <td class="tabButtons" id="btt_WIS"><button class="attTabButtLow" id="valDecWIS" onclick="decreaseAttVal(this.id)">-</button></td>
+                <td class="tabButtons" id="btt_CHA"><button class="attTabButtLow" id="valDecCHA" onclick="decreaseAttVal(this.id)">-</button></td>
+            </tr>
+            <tr id="attrMOD" >
+                <Th class="attTabHeadCell" id="attOutCellMOD" colspan="2">MOD</Th>
+                <Th class="attTabHeadCell" id="attOutCellMOD" colspan="2">MOD</Th>
+                <Th class="attTabHeadCell" id="attOutCellMOD" colspan="2">MOD</Th>
+                <Th class="attTabHeadCell" id="attOutCellMOD" colspan="2">MOD</Th>
+                <Th class="attTabHeadCell" id="attOutCellMOD" colspan="2">MOD</Th>
+                <Th class="attTabHeadCell" id="attOutCellMOD" colspan="2">MOD</Th>
+            </tr>
+            <tr>
+                <th class="attTabModVal" id="attCellModSTR" colspan="2">0</th>
+                <th class="attTabModVal" id="attCellModDEX" colspan="2">0</th>
+                <th class="attTabModVal" id="attCellModCON" colspan="2">0</th>
+                <th class="attTabModVal" id="attCellModINT" colspan="2">0</th>
+                <th class="attTabModVal" id="attCellModWIS" colspan="2">0</th>
+                <th class="attTabModVal" id="attCellModCHA" colspan="2">0</th>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>
