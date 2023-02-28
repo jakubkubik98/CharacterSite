@@ -1,4 +1,5 @@
-'use strict';   
+'use strict'; 
+    //Attribute input
     let attrVal = {
         STR: 10,
         DEX: 10,
@@ -26,6 +27,7 @@
             innerHTML = attValues[`${modifiedAttr}`]
     };
 
+    // Feats input section
     function generateFeats()
     {
         function createPayload() {
@@ -45,8 +47,6 @@
                     </td>
                     <td id="featName">${featList[i]}</td>
                 </tr>`
-               
-                
             }
 
             return html;
@@ -63,4 +63,43 @@
         document.querySelector('#featListTarget').innerHTML = htmlResult;
         
     }
-    generateFeats();
+    // Skill section
+    function generateSkills() {
+        function generateSkillPayload(){
+        let skillHTML = '';
+        let skillList = pullSkillData();
+        console.log(skillList);
+        const sourceImageLink = 'html';
+        let j;
+        for (j = 0; i<skillList.length; j++)
+        {
+            html += `
+            <tr>
+                    <td rowspan="2">
+                        <img src='${sourceImageLink}'>
+                    </td>
+                    <td id="skillName" rowspan="2">
+                        ${skillName}
+                    </td>
+                    <td>
+                        <button class="skillButton" id="valAddSkill">+</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="skillButton" id="valDecSkill">-</button>
+                    </td>
+                </tr>`
+        }
+        return html;}
+        function pullSkillData(){
+            //let skillArray = JSON.parse('../skillData.json')
+            let skillArray = ['skill1','skill2','skill3'];
+            return skillArray
+        }
+        let skillHTMLResult = generateSkillPayload();
+        console.log(skillHTMLResult)
+        document.querySelector('#skillListTarget').innerHTML = skillHTMLResult;
+    }
+
+    
