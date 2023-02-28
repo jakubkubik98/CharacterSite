@@ -68,18 +68,19 @@
         function generateSkillPayload(){
         let skillHTML = '';
         let skillList = pullSkillData();
+        
         console.log(skillList);
         const sourceImageLink = 'html';
         let j;
-        for (j = 0; i<skillList.length; j++)
+        for (j = 0; j<skillList.length; j++)
         {
-            html += `
+            skillHTML += `
             <tr>
                     <td rowspan="2">
                         <img src='${sourceImageLink}'>
                     </td>
                     <td id="skillName" rowspan="2">
-                        ${skillName}
+                        ${skillList[j]}
                     </td>
                     <td>
                         <button class="skillButton" id="valAddSkill">+</button>
@@ -91,7 +92,7 @@
                     </td>
                 </tr>`
         }
-        return html;}
+        return skillHTML;}
         function pullSkillData(){
             //let skillArray = JSON.parse('../skillData.json')
             let skillArray = ['skill1','skill2','skill3'];
@@ -101,5 +102,7 @@
         console.log(skillHTMLResult)
         document.querySelector('#skillListTarget').innerHTML = skillHTMLResult;
     }
+    generateFeats();
+    generateSkills();
 
     
