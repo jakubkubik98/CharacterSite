@@ -10,18 +10,19 @@
 </head>
 <body id="body" >
     <!--Tabs-->
+    <header class="tabs">
+        <table>
+            <tr>
+                <th class="tabButtons" id="TCharSheet" onclick="openTab('sheet')">Character sheet</th>
+                <th class="tabButtons" id="TSkill" onclick="openTab('skills')">Skills</th>
+                <th class="tabButtons" id="TFeats" onclick="openTab('feats')">Feats</th>
+            </tr>
+        </table>
+    </header>
     <div id="output" class="divider">
-        <header class="tabs">
-            <table>
-                <tr>
-                    <th class="tabButtons" id="TCharSheet" onclick="openTab(sheet)">Character sheet</th>
-                    <th class="tabButtons" id="TSkill" onclick="openTab(skills)">Skills</th>
-                    <th class="tabButtons" id="TFeats" onclick="openTab(feats)">Feats</th>
-                </tr>
-            </table>
-        </header>
-        <!--Tab contents-->
         
+        <!--Tab contents-->
+            <!-- Character sheet-->
             <div id="CharacterSheet">
                 <section id="portrait">portrait.temp</section>
                 <div id="classList">Class list.temp</div>
@@ -53,6 +54,18 @@
                         </tr>
                     </table>
                 </div>
+            </div>
+            <!-- Skills-->
+            <div id="SkillsSheet">
+                <table id="skillSheetTable">
+                    
+                </table>
+            </div>
+            <!-- Feats-->
+            <div id="FeatsSheet">
+                <table id="featSheetTable">
+                    
+                </table>
             </div>
         </div>
     <!--Edytor-->

@@ -33,7 +33,6 @@
         function createPayload() {
             let html = '';
             let featList = pullFeatData();
-            console.log(featList)
             let sourceImageLink = 'https://static.wikia.nocookie.net/nwn/images/9/94/Ife_bardsong.gif/revision/latest?cb=20050813220720';
             let i;
             for(i=0; i< featList.length; i++)
@@ -51,6 +50,27 @@
 
             return html;
         }
+        function featOutput() {
+            /* This function duplicates skills from input to output together
+            the summary value of the skill modified by the attributes
+            */
+           let featList = pullFeatData();
+           let htmlFeatOutput = '';
+           let i;
+           for (i = 0; i<featList.length;i++)
+           {
+            htmlFeatOutput += `<tr>
+            <td class="squareIco" id="FeatNamOut${featList[i]}"><img src=""></td>
+            <td id="FeatNamOut${featList[i]}">
+                ${featList[i]}
+            </td>
+            <td id="FeatNamOut${featList[i]}">0</td>
+        </tr>
+            
+            `
+           }
+           document.querySelector('#featSheetTable').innerHTML = htmlFeatOutput;
+        }
         
         function pullFeatData()
         {
@@ -59,49 +79,102 @@
             return tempArray;
         }
         let htmlResult = createPayload();
-        console.log(htmlResult)
         document.querySelector('#featListTarget').innerHTML = htmlResult;
-        
+        featOutput();
     }
     // Skill section
     function generateSkills() {
         function generateSkillPayload(){
-        let skillHTML = '';
-        let skillList = pullSkillData();
-        
-        console.log(skillList);
-        const sourceImageLink = 'html';
-        let j;
-        for (j = 0; j<skillList.length; j++)
-        {
-            skillHTML += `
-            <tr>
-                    <td rowspan="2">
-                        <img src='${sourceImageLink}'>
-                    </td>
-                    <td id="skillName" rowspan="2">
-                        ${skillList[j]}
-                    </td>
-                    <td>
-                        <button class="skillButton" id="valAddSkill">+</button>
-                    </td>
-                </tr>
+            let skillHTMLInput = '';
+            let skillList = pullSkillData();
+            const sourceImageLink = 'html';
+            let j;
+            for (j = 0; j<skillList.length; j++)
+            {
+                skillHTMLInput += `
                 <tr>
-                    <td>
-                        <button class="skillButton" id="valDecSkill">-</button>
-                    </td>
-                </tr>`
+                        <td rowspan="2" id="skillIcon">
+                            <img src='${sourceImageLink}'>
+                        </td>
+                        <td id="skillName" rowspan="2">
+                            ${skillList[j]}
+                        </td>
+                        <td>
+                            <button class="skillButton" id="valAddSkill">+</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="skillButton" id="valDecSkill">-</button>
+                        </td>
+                    </tr>`
+            }
+            return skillHTMLInput;
         }
-        return skillHTML;}
         function pullSkillData(){
             //let skillArray = JSON.parse('../skillData.json')
             let skillArray = ['skill1','skill2','skill3'];
             return skillArray
         }
+
+        function skillOutput() {
+            /* This function duplicates skills from input to output together
+            the summary value of the skill modified by the attributes
+            */
+           let skillList = pullSkillData();
+           let htmlSkillOutput = '';
+           let i;
+           for (i = 0; i<skillList.length;i++)
+           {
+            htmlSkillOutput += `<tr>
+            <td class="squareIco" id="SkillIcoOut${skillList[i]}"><img src=""></td>
+            <td id="SkillNamOut${skillList[i]}">
+                ${skillList[i]}
+            </td>
+            <td id="SkillValOut${skillList[i]}">0</td>
+        </tr>
+            
+            `
+           }
+           document.querySelector('#skillSheetTable').innerHTML = htmlSkillOutput;
+        }
+        
         let skillHTMLResult = generateSkillPayload();
-        console.log(skillHTMLResult)
         document.querySelector('#skillListTarget').innerHTML = skillHTMLResult;
+        skillOutput();
     }
+    
+    function openTab(type){
+        const tabs = {
+            sheet:'CharacterSheet',
+            skills:'SkillsSheet',
+            feats:'FeatsSheet'
+        };
+        switch (type) {
+            case 'sheet':
+                console.log(type);
+                document.getElementById(tabs.sheet).style.display = 'inline-block';
+                document.getElementById(tabs.skills).style.display = 'none';
+                document.getElementById(tabs.feats).style.display = 'none';
+                break;
+        
+            case 'skills':
+                console.log(type);
+                document.getElementById(tabs.sheet).style.display = 'none';
+                document.getElementById(tabs.skills).style.display = 'inline-block';
+                document.getElementById(tabs.feats).style.display = 'none';
+                break;
+        
+            case 'feats':
+                console.log(type);
+                document.getElementById(tabs.sheet).style.display = 'none';
+                document.getElementById(tabs.skills).style.display = 'none';
+                document.getElementById(tabs.feats).style.display = 'inline-block';
+                break;
+        }
+    }
+
+    
     generateFeats();
     generateSkills();
 
