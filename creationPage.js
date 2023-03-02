@@ -16,6 +16,7 @@
         document.
             getElementById(`AttVal${modifiedAttr}`).
             innerHTML = attValues[`${modifiedAttr}`]
+        calculateMod();
     };
     function decreaseAttVal(button_id)
     {
@@ -25,6 +26,7 @@
         document.
             getElementById(`AttVal${modifiedAttr}`).
             innerHTML = attValues[`${modifiedAttr}`]
+        calculateMod();
     };
 
     // Feats input section
@@ -193,7 +195,56 @@
                 document.getElementById('TFeats').style.backgroundColor = '#2773be';
                 }
         }
-    
+    function calculateMod(){
+        // pull the values
+        const attributeVals = {
+            str: document.getElementById('AttValSTR').innerHTML,
+            dex: document.getElementById('AttValDEX').innerHTML,
+            con: document.getElementById('AttValCON').innerHTML,
+            int: document.getElementById('AttValINT').innerHTML,
+            wis: document.getElementById('AttValWIS').innerHTML,
+            cha: document.getElementById('AttValCON').innerHTML
+        }
+        let attributeMods = {
+            str: document.getElementById('attCellModSTR').innerHTML,
+            dex: document.getElementById('attCellModDEX').innerHTML,
+            con: document.getElementById('attCellModCON').innerHTML,
+            int: document.getElementById('attCellModINT').innerHTML,
+            wis: document.getElementById('attCellModWIS').innerHTML,
+            cha: document.getElementById('attCellModCHA').innerHTML
+        }
+        //calculate
+        let x;
+        for(x = 0; x <6;x++)
+        {
+            if (Object.values(attributeVals)[x] == 10){
+                Object.values(attributeMods)[x] = 0
+            } else if ( Object.values(attributeVals)[x] > 10) {
+                //console.log(Math.floor(((Object.values(attributeVals)[x]) - 10) / 2))
+                Object.values(attributeMods)[x] = Math.floor(((Object.values(attributeVals)[x]) - 10) / 2)
+            } else if (Object.values(attributeVals)[x] < 10){
+                
+                Object.keys(attributeMods)[x] = Math.floor(((Object.values(attributeVals)[x])-10)/2)
+                console.log(Object.keys(attributeMods)[x])
+            }
+            
+        }
+        console.log(attributeMods)
+        //push values back
+        let y;
+        const documentElements = {
+            str: document.getElementById('attCellModSTR'),
+            dex: document.getElementById('attCellModDEX'),
+            con: document.getElementById('attCellModCON'),
+            int: document.getElementById('attCellModINT'),
+            wis: document.getElementById('attCellModWIS'),
+            cha: document.getElementById('attCellModCHA')
+        }
+        for (y = 0; y <6;y++) {
+            console.log(Object.values(documentElements)[y])
+            Object.values(documentElements)[y].innerHTML = Object.values(attributeMods)[y]
+        }
+    }
 
     
     generateFeats();

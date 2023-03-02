@@ -37,27 +37,33 @@
                 <div id="attributes"><table>
                     <tr>
                         <td class="ClassNameOut"><div class="attribute">Strenght</div></td>
-                        <td class="attValOut" id="val_STR">10</td>
+                        <td class="attValOut" id="AttValSTR">10</td>
+                        <td class="attValOut" id="Mod_STR">0</td>
                     </tr>
                     <tr>
                         <td class="ClassNameOut"><div class="attribute">Dexternity</div></td>
-                        <td class="attValOut" id="val_DEX">10</td>
+                        <td class="attValOut" id="AttValDEX">10</td>
+                        <td class="attValOut" id="Mod_DEX">0</td>
                     </tr>
                     <tr>
                         <td class="ClassNameOut"><div class="attribute">Constitution </div></td>
-                        <td class="attValOut" id="val_CON">10</td>
+                        <td class="attValOut" id="AttValCON">10</td>
+                        <td class="attValOut" id="Mod_CON">0</td>
                     </tr>
                     <tr>
                         <td class="ClassNameOut"><div class="attribute">Intelligence </div></td>
-                        <td class="attValOut" id="val_INT">10</td>
+                        <td class="attValOut" id="AttValINT">10</td>
+                        <td class="attValOut" id="Mod_INT">0</td>
                     </tr>
                     <tr>
                         <td class="ClassNameOut"><div class="attribute">Wisdom </div></td>
-                        <td class="attValOut" id="val_WIS">10</td>
+                        <td class="attValOut" id="AttValWIS">10</td>
+                        <td class="attValOut" id="Mod_WIS">0</td>
                     </tr>
                     <tr>
                         <td class="ClassNameOut"><div class="attribute">Charisma </div></td>
-                        <td class="attValOut" id="val_CHA">10</td>
+                        <td class="attValOut" id="AttValCHA">10</td>
+                        <td class="attValOut" id="Mod_CHA">0</td>
                     </tr>
                 </table>
                 </div>
@@ -83,26 +89,26 @@
             <tr><td>
                 <div id="classSection">
                     <select id="class1" class="classSelect"></select>
-                    <td class="tabButtons" id="classButtLow"><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
+                    <td id="classButtLow"><img src="files\\Scrolldown.png" class="attTabButtons"  onclick="decreaseAttVal(this.id)"></td>
                     <td class="tabButtType" id="classVal">10</td>
-                    <td id="classButtAdd"><button class="attTabButtAdd"  onclick="increaseAttVal(this.id)">+</button></td>
+                    <td id="classButtAdd"><img src="files\\Scrollup.png" class="attTabButtons"  onclick="increaseAttVal(this.id)"></td>
                 </div>
             </td>
             <tr><td>
                 <div id="classSection">
                     <select id="class2" class="classSelect">TBA</select><br>
-                    <td class="tabButtons" id="classButtLow"><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
+                    <td id="classButtLow"><img src="files\\Scrolldown.png" class="attTabButtons"  onclick="decreaseAttVal(this.id)"></td>
                     <td class="tabButtType" id="classVal" >10</td>
-                    <td id="classButtAdd"><button class="attTabButtAdd"  onclick="increaseAttVal(this.id)">+</button></td>
+                    <td id="classButtAdd"><img src="files\\Scrollup.png" class="attTabButtons"  onclick="increaseAttVal(this.id)"></td>
     
                 </div>
             </td>
             <tr><td>
                 <div id="classSection">
                     <select id="class3" class="classSelect">TBA</select><br>
-                    <td class="tabButtons" id="classButtLow"><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
+                    <td id="classButtLow"><img src="files\\Scrolldown.png" class="attTabButtons"  onclick="decreaseAttVal(this.id)"></td>
                     <td class="tabButtType" id="classVal">10</td>
-                    <td id="classButtAdd"><button class="attTabButtAdd"  onclick="increaseAttVal(this.id)">+</button></td>
+                    <td id="classButtAdd"><img src="files\\Scrollup.png" class="attTabButtons"  onclick="increaseAttVal(this.id)"></td>
     
                 </div>
             </td>
@@ -123,27 +129,25 @@
             </tr>
             <tr>
                 <td class="tabButtType" rowspan="2" id="AttValSTR">10</td>
-                <td><button class="attTabButtAdd" id="valAddSTR" onclick="increaseAttVal(this.id)">
-                    +
-                </button></td>
+                <td><img src="files\\Scrollup.png" class="attTabButtons" id="valIncSTR" onclick="increaseAttVal(this.id)"></td>
                 <td class="tabButtType" id="AttValDEX" rowspan="2">10</td>
-                <td><button class="attTabButtAdd" id="valAddDEX" onclick="increaseAttVal(this.id)">+</button></td>
+                <td><img src="files\\Scrollup.png" class="attTabButtons" id="valIncDEX" onclick="increaseAttVal(this.id)"></td>
                 <td class="tabButtType" id="AttValCON" rowspan="2">10</td>
-                <td><button class="attTabButtAdd" id="valAddCON" onclick="increaseAttVal(this.id)">+</button></td>
+                <td><img src="files\\Scrollup.png" class="attTabButtons" id="valIncCON" onclick="increaseAttVal(this.id)"></td>
                 <td class="tabButtType" id="AttValINT" rowspan="2">10</td>
-                <td><button class="attTabButtAdd" id="valAddINT" onclick="increaseAttVal(this.id)">+</button></td>
+                <td><img src="files\\Scrollup.png" class="attTabButtons" id="valIncINT" onclick="increaseAttVal(this.id)"></td>
                 <td class="tabButtType" id="AttValWIS" rowspan="2">10</td>
-                <td><button class="attTabButtAdd" id="valAddWIS" onclick="increaseAttVal(this.id)">+</button></td>
+                <td><img src="files\\Scrollup.png" class="attTabButtons" id="valIncWIS" onclick="increaseAttVal(this.id)"></td>
                 <td class="tabButtType" id="AttValCHA" rowspan="2">10</td>
-                <td><button class="attTabButtAdd" id="valAddCHA" onclick="increaseAttVal(this.id)">+</button></td>
+                <td><img src="files\\Scrollup.png" class="attTabButtons" id="valIncCHA" onclick="increaseAttVal(this.id)"></td>
             </tr>
             <tr>
-                <td class="tabButtons" id="btt_STR"><button class="attTabButtLow" id="valDecSTR" onclick="decreaseAttVal(this.id)">-</button></td>
-                <td class="tabButtons" id="btt_DEX"><button class="attTabButtLow" id="valDecDEX" onclick="decreaseAttVal(this.id)">-</button></td>
-                <td class="tabButtons" id="btt_CON"><button class="attTabButtLow" id="valDecCON" onclick="decreaseAttVal(this.id)">-</button></td>
-                <td class="tabButtons" id="btt_INT"><button class="attTabButtLow" id="valDecINT" onclick="decreaseAttVal(this.id)">-</button></td>
-                <td class="tabButtons" id="btt_WIS"><button class="attTabButtLow" id="valDecWIS" onclick="decreaseAttVal(this.id)">-</button></td>
-                <td class="tabButtons" id="btt_CHA"><button class="attTabButtLow" id="valDecCHA" onclick="decreaseAttVal(this.id)">-</button></td>
+                <td class="tabButtons" id="btt_STR"><img src="files/scrollDown.png" class="attTabButtons" id="valDecSTR" onclick="decreaseAttVal(this.id)"></td>
+                <td class="tabButtons" id="btt_DEX"><img src="files/scrollDown.png" class="attTabButtons" id="valDecDEX" onclick="decreaseAttVal(this.id)"></td>
+                <td class="tabButtons" id="btt_CON"><img src="files/scrollDown.png" class="attTabButtons" id="valDecCON" onclick="decreaseAttVal(this.id)"></td>
+                <td class="tabButtons" id="btt_INT"><img src="files/scrollDown.png" class="attTabButtons" id="valDecINT" onclick="decreaseAttVal(this.id)"></td>
+                <td class="tabButtons" id="btt_WIS"><img src="files/scrollDown.png" class="attTabButtons" id="valDecWIS" onclick="decreaseAttVal(this.id)"></td>
+                <td class="tabButtons" id="btt_CHA"><img src="files/scrollDown.png" class="attTabButtons" id="valDecCHA" onclick="decreaseAttVal(this.id)"></td>
             </tr>
             <tr id="attrMOD" >
                 <Th class="attTabHeadCell" id="attOutCellMOD" colspan="2">MOD</Th>
