@@ -24,36 +24,45 @@
         <!--Tab contents-->
             <!-- Character sheet-->
             <div id="CharacterSheet">
-                <section id="portrait">portrait.temp</section>
-                <div id="classList">Class list.temp</div>
-                <div id="attributes">
-                    <div class="attribute">STR</div>
-                    <div class="attribute">DEX</div>
-                    <div class="attribute">CON</div>
-                    <div class="attribute">INT</div>
-                    <div class="attribute">WIS</div>
-                    <div class="attribute">CHA</div>
-                </div>
+                <section id="portrait"><input type="file"></section>
                 <div id="statList">
-                    <table>
-                        <tr id="attrTableHeader" >
-                            <Th class="attTabHeadCell" colspan="2">STR</Th>
-                            <Th class="attTabHeadCell" colspan="2">DEX</Th>
-                            <Th class="attTabHeadCell" colspan="2">CON</Th>
-                            <Th class="attTabHeadCell" colspan="2">INT</Th>
-                            <Th class="attTabHeadCell" colspan="2">WIS</Th>
-                            <Th class="attTabHeadCell" colspan="2">CHA</Th>
-                        </tr>
+                <div id="classList">
+                    <div id="classSection">
                         <tr>
-                            <td class="tabButtType" id="val_STR">10</td>
-                            <td class="tabButtType" id="val_DEX">10</td>
-                            <td class="tabButtType" id="val_CON">10</td>
-                            <td class="tabButtType" id="val_INT">10</td>
-                            <td class="tabButtType" id="val_WIS">10</td>
-                            <td class="tabButtType" id="val_CHA">10</td>
+                            <td id="classOut1">Class1</td>
+                            <td class="tabButtType" id="classVal">10</td>
                         </tr>
-                    </table>
+                    </div>
                 </div>
+                <div id="attributes"><table>
+                    <tr>
+                        <td class="ClassNameOut"><div class="attribute">Strenght</div></td>
+                        <td class="attValOut" id="val_STR">10</td>
+                    </tr>
+                    <tr>
+                        <td class="ClassNameOut"><div class="attribute">Dexternity</div></td>
+                        <td class="attValOut" id="val_DEX">10</td>
+                    </tr>
+                    <tr>
+                        <td class="ClassNameOut"><div class="attribute">Constitution </div></td>
+                        <td class="attValOut" id="val_CON">10</td>
+                    </tr>
+                    <tr>
+                        <td class="ClassNameOut"><div class="attribute">Intelligence </div></td>
+                        <td class="attValOut" id="val_INT">10</td>
+                    </tr>
+                    <tr>
+                        <td class="ClassNameOut"><div class="attribute">Wisdom </div></td>
+                        <td class="attValOut" id="val_WIS">10</td>
+                    </tr>
+                    <tr>
+                        <td class="ClassNameOut"><div class="attribute">Charisma </div></td>
+                        <td class="attValOut" id="val_CHA">10</td>
+                    </tr>
+                </table>
+                </div>
+                
+            </div>
             </div>
             <!-- Skills-->
             <div id="SkillsSheet">
@@ -73,27 +82,27 @@
         <table>
             <tr><td>
                 <div id="classSection">
-                    <select id="class1">TBA</select>
-                    <td class="tabButtons" id=""><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
-                    <td class="tabButtType" id="">10</td>
-                    <td><button class="attTabButtAdd" id="" onclick="increaseAttVal(this.id)">+</button></td>
+                    <select id="class1" class="classSelect"></select>
+                    <td class="tabButtons" id="classButtLow"><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
+                    <td class="tabButtType" id="classVal">10</td>
+                    <td id="classButtAdd"><button class="attTabButtAdd"  onclick="increaseAttVal(this.id)">+</button></td>
                 </div>
             </td>
             <tr><td>
                 <div id="classSection">
-                    <select id="class2">TBA</select><br>
-                    <td class="tabButtons" id=""><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
-                    <td class="tabButtType" id="" >10</td>
-                    <td><button class="attTabButtAdd" id="" onclick="increaseAttVal(this.id)">+</button></td>
+                    <select id="class2" class="classSelect">TBA</select><br>
+                    <td class="tabButtons" id="classButtLow"><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
+                    <td class="tabButtType" id="classVal" >10</td>
+                    <td id="classButtAdd"><button class="attTabButtAdd"  onclick="increaseAttVal(this.id)">+</button></td>
     
                 </div>
             </td>
             <tr><td>
                 <div id="classSection">
-                    <select id="class3">TBA</select><br>
-                    <td class="tabButtons" id=""><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
-                    <td class="tabButtType" id="">10</td>
-                    <td><button class="attTabButtAdd" id="" onclick="increaseAttVal(this.id)">+</button></td>
+                    <select id="class3" class="classSelect">TBA</select><br>
+                    <td class="tabButtons" id="classButtLow"><button class="attTabButtLow" id="" onclick="decreaseAttVal(this.id)">-</button></td>
+                    <td class="tabButtType" id="classVal">10</td>
+                    <td id="classButtAdd"><button class="attTabButtAdd"  onclick="increaseAttVal(this.id)">+</button></td>
     
                 </div>
             </td>
@@ -153,12 +162,12 @@
                 <th class="attTabModVal" id="attCellModCHA" colspan="2">0</th>
             </tr>
         </table>
-        <div id="featSelection">
-            <table id="featListTarget">
-            </table>
-        </div>
         <div id="skillsSelection">
             <table id="skillListTarget">
+            </table>
+        </div>
+        <div id="featSelection">
+            <table id="featListTarget">
             </table>
         </div>
     </div>

@@ -1,7 +1,17 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.tabs {
+  width: 50%;
+}
+
 .divider {
   display: inline-block;
   margin: 0%;
-  width: 50%;
+  width: 49.85%;
+  border-left: solid gold 2px;
 }
 
 #input {
@@ -41,6 +51,15 @@ header {
   width: 1%;
   margin: 0px;
   padding: 0px;
+  transition: background-color 0.5s;
+}
+
+.tabButtons:hover {
+  background-color: #2773be;
+  color: black;
+  width: 1%;
+  margin: 0px;
+  padding: 0px;
 }
 
 #portrait {
@@ -51,14 +70,64 @@ header {
   background-color: red;
 }
 
+#statlist {
+  width: 100%;
+  text-align: right;
+}
+
 #classlist {
   background-color: brown;
   display: grid;
   justify-content: end;
 }
 
-#attTabButtAdd #attTabButtLow {
+#skillIcon .squareIco {
+  width: 32px;
+  height: 32px;
+}
+
+#CharacterSheet {
+  display: flex;
   width: 100%;
+}
+
+#SkillsSheet {
+  display: none;
+}
+
+#FeatsSheet {
+  display: none;
+}
+
+.classSelect {
+  width: 100%;
+}
+
+#classVal {
+  width: 3%;
+}
+
+#classButtAdd {
+  width: 1%;
+}
+
+#statlist {
+  width: 100%;
+}
+
+.ClassNameOut {
+  width: 97%;
+  font-weight: bold;
+}
+
+.skillButton {
+  width: 20px;
+  height: 20px;
+}
+
+.attTabButtons {
+  width: 20px;
+  height: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

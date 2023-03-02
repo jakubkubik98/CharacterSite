@@ -89,32 +89,56 @@
             let skillList = pullSkillData();
             const sourceImageLink = 'html';
             let j;
-            for (j = 0; j<skillList.length; j++)
+            for (j = 0; j<Object.keys(skillList).length;j++)
             {
                 skillHTMLInput += `
                 <tr>
-                        <td rowspan="2" id="skillIcon">
-                            <img src='${sourceImageLink}'>
+                        <td rowspan="2" id="skillIcon${j}"><img src='${sourceImageLink}'></td>
+                        
+                        <td id="skillName${j}" rowspan="2">${Object.keys(skillList)[j]}</td>
+                        <td id="skillVal${j}" rowspan="2">0</td>
+                        <td class="skillButton" id="valAddSkill${j}">
+                        <img class="SkillButton src="files\\Scrollup.png">
                         </td>
-                        <td id="skillName" rowspan="2">
-                            ${skillList[j]}
-                        </td>
-                        <td>
-                            <button class="skillButton" id="valAddSkill">+</button>
-                        </td>
+                        
                     </tr>
                     <tr>
-                        <td>
-                            <button class="skillButton" id="valDecSkill">-</button>
+                        <td class="skillButton" id="valDecSkill${j}">
                         </td>
                     </tr>`
             }
             return skillHTMLInput;
         }
         function pullSkillData(){
-            //let skillArray = JSON.parse('../skillData.json')
-            let skillArray = ['skill1','skill2','skill3'];
-            return skillArray
+            const skillObj = {'Animal empathy':"WIS",
+            Appraise:"INT",
+            Bluff:"CHA",
+            Concentration:"CON",
+            'Craft armor':"INT",
+            'Craft trap':"INT",
+            'Craft weapon':"INT",
+            'Disable trap':"INT",
+            Discipline:"STR",
+            Heal:"WIS",
+            Hide:"DEX",
+            Intimidate:"CHA",
+            Listen:"WIS",
+            Lore:"INT",
+            'Move silently':"DEX",
+            'Open lock':"DEX",
+            Parry:"DEX",
+            Perform:"CHA",
+            Persuade:"CHA",
+            'Pick pocket':"DEX",
+            Ride:"DEX",
+            Search:"INT",
+            'Set trap':"DEX",
+            Spellcraft:"INT",
+            Spot:"WIS",
+            Taunt:"CHA",
+            Tumble:"DEX",
+            'Use magic device':"CHA"};
+            return skillObj
         }
 
         function skillOutput() {
@@ -124,14 +148,14 @@
            let skillList = pullSkillData();
            let htmlSkillOutput = '';
            let i;
-           for (i = 0; i<skillList.length;i++)
+           for (i = 0; i<Object.keys(skillList).length;i++)
            {
             htmlSkillOutput += `<tr>
-            <td class="squareIco" id="SkillIcoOut${skillList[i]}"><img src=""></td>
-            <td id="SkillNamOut${skillList[i]}">
-                ${skillList[i]}
+            <td class="squareIco" id="SkillIcoOut${Object.keys(skillList)[i]}"><img src=""></td>
+            <td id="SkillNamOut${Object.keys(skillList)[i]}">
+                ${Object.keys(skillList)[i]}
             </td>
-            <td id="SkillValOut${skillList[i]}">0</td>
+            <td id="SkillValOut${Object.keys(skillList)[i]}">0</td>
         </tr>
             
             `
@@ -150,29 +174,26 @@
             skills:'SkillsSheet',
             feats:'FeatsSheet'
         };
-        switch (type) {
-            case 'sheet':
-                console.log(type);
-                document.getElementById(tabs.sheet).style.display = 'inline-block';
+            if('sheet' === type){
+                document.getElementById(tabs.sheet).style.display = 'flex';
+                document.getElementById('TCharSheet').style.backgroundColor = '#2773be';
                 document.getElementById(tabs.skills).style.display = 'none';
                 document.getElementById(tabs.feats).style.display = 'none';
-                break;
-        
-            case 'skills':
-                console.log(type);
+        }
+            else if('skills'=== type){
                 document.getElementById(tabs.sheet).style.display = 'none';
                 document.getElementById(tabs.skills).style.display = 'inline-block';
-                document.getElementById(tabs.feats).style.display = 'none';
-                break;
+                document.getElementById('TSkill').style.backgroundColor = '#2773be';
+                document.getElementById(tabs.feats).style.display = 'none';}
         
-            case 'feats':
-                console.log(type);
+            else if('feats'===type){
                 document.getElementById(tabs.sheet).style.display = 'none';
                 document.getElementById(tabs.skills).style.display = 'none';
                 document.getElementById(tabs.feats).style.display = 'inline-block';
-                break;
+                document.getElementById('TFeats').style.backgroundColor = '#2773be';
+                }
         }
-    }
+    
 
     
     generateFeats();
