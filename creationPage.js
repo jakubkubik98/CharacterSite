@@ -15,7 +15,10 @@
         attValues[`${modifiedAttr}`] = attValues[`${modifiedAttr}`] + 1;
         document.
             getElementById(`AttVal${modifiedAttr}`).
-            innerHTML = attValues[`${modifiedAttr}`]
+            innerHTML = attValues[`${modifiedAttr}`];
+        document.
+            getElementById(`AttVal${modifiedAttr}o`).
+            innerHTML = attValues[`${modifiedAttr}`];
         calculateMod();
     };
     function decreaseAttVal(button_id)
@@ -25,7 +28,10 @@
         attValues[`${modifiedAttr}`] = attValues[`${modifiedAttr}`] - 1;
         document.
             getElementById(`AttVal${modifiedAttr}`).
-            innerHTML = attValues[`${modifiedAttr}`]
+            innerHTML = attValues[`${modifiedAttr}`];
+        document.
+            getElementById(`AttVal${modifiedAttr}o`).
+            innerHTML = attValues[`${modifiedAttr}`];
         calculateMod();
     };
 
@@ -89,7 +95,7 @@
         function generateSkillPayload(){
             let skillHTMLInput = '';
             let skillList = pullSkillData();
-            const sourceImageLink = 'html';
+            const sourceImageLink = 'https://static.wikia.nocookie.net/nwn/images/9/94/Ife_bardsong.gif/revision/latest?cb=20050813220720';
             let j;
             for (j = 0; j<Object.keys(skillList).length;j++)
             {
@@ -99,13 +105,13 @@
                         
                         <td id="skillName${j}" rowspan="2">${Object.keys(skillList)[j]}</td>
                         <td id="skillVal${j}" rowspan="2">0</td>
-                        <td class="skillButton" id="valAddSkill${j}">
-                        <img class="SkillButton src="files\\Scrollup.png">
+                        <td>
+                            <button class="skillButton" id="valAddSkill${[j]}" onclick="skillIncrease(this.id)">+</button>
                         </td>
-                        
                     </tr>
                     <tr>
-                        <td class="skillButton" id="valDecSkill${j}">
+                        <td>
+                            <button class="skillButton" id="valDecSkill${[j]}" onclick="skillDecrease(this.id)">-</button>
                         </td>
                     </tr>`
             }
@@ -158,7 +164,7 @@
                 ${Object.keys(skillList)[i]}
             </td>
             <td id="SkillValOut${Object.keys(skillList)[i]}">0</td>
-        </tr>
+            </tr>
             
             `
            }
@@ -168,6 +174,17 @@
         let skillHTMLResult = generateSkillPayload();
         document.querySelector('#skillListTarget').innerHTML = skillHTMLResult;
         skillOutput();
+    }
+
+    function skillIncrease(button_id) {
+        let skillIndex = button_id.substr(11)
+        let skillVal = document.getElementById(`skillVal${skillIndex}`).innerHTML
+        document.getElementById(`skillVal${skillIndex}`).innerHTML = Number(skillVal) + 1; 
+    }
+    function skillDecrease(button_id) {
+        let skillIndex = button_id.substr(11)
+        let skillVal = document.getElementById(`skillVal${skillIndex}`).innerHTML
+        document.getElementById(`skillVal${skillIndex}`).innerHTML = Number(skillVal) - 1; 
     }
     
     function openTab(type){
@@ -180,17 +197,23 @@
                 document.getElementById(tabs.sheet).style.display = 'flex';
                 document.getElementById('TCharSheet').style.backgroundColor = '#2773be';
                 document.getElementById(tabs.skills).style.display = 'none';
+                document.getElementById('TSkill').style.backgroundColor = 'black';
                 document.getElementById(tabs.feats).style.display = 'none';
+                document.getElementById('TFeats').style.backgroundColor = 'black';
         }
             else if('skills'=== type){
                 document.getElementById(tabs.sheet).style.display = 'none';
+                document.getElementById('TCharSheet').style.backgroundColor = 'black';
                 document.getElementById(tabs.skills).style.display = 'inline-block';
                 document.getElementById('TSkill').style.backgroundColor = '#2773be';
-                document.getElementById(tabs.feats).style.display = 'none';}
-        
+                document.getElementById(tabs.feats).style.display = 'none';
+                document.getElementById('TFeats').style.backgroundColor = 'black';}
+                
             else if('feats'===type){
                 document.getElementById(tabs.sheet).style.display = 'none';
+                document.getElementById('TCharSheet').style.backgroundColor = 'black';
                 document.getElementById(tabs.skills).style.display = 'none';
+                document.getElementById('TSkill').style.backgroundColor = 'black';
                 document.getElementById(tabs.feats).style.display = 'inline-block';
                 document.getElementById('TFeats').style.backgroundColor = '#2773be';
                 }
@@ -214,22 +237,14 @@
             cha: document.getElementById('attCellModCHA').innerHTML
         }
         //calculate
-        let x;
-        for(x = 0; x <6;x++)
-        {
-            if (Object.values(attributeVals)[x] == 10){
-                Object.values(attributeMods)[x] = 0
-            } else if ( Object.values(attributeVals)[x] > 10) {
-                //console.log(Math.floor(((Object.values(attributeVals)[x]) - 10) / 2))
-                Object.values(attributeMods)[x] = Math.floor(((Object.values(attributeVals)[x]) - 10) / 2)
-            } else if (Object.values(attributeVals)[x] < 10){
-                
-                Object.keys(attributeMods)[x] = Math.floor(((Object.values(attributeVals)[x])-10)/2)
-                console.log(Object.keys(attributeMods)[x])
-            }
-            
-        }
-        console.log(attributeMods)
+        Object.keys(attributeMods).forEach((key) => {
+            if (attributeMods[key] == 10){
+                attributeMods[key] = 0;
+            } else if ( attributeMods[key] > 10 || attributeMods[key] < 10 ) {
+                        
+                attributeMods[key] = Math.floor(((attributeVals[key]) - 10) / 2);
+            }  
+        })
         //push values back
         let y;
         const documentElements = {
@@ -241,7 +256,6 @@
             cha: document.getElementById('attCellModCHA')
         }
         for (y = 0; y <6;y++) {
-            console.log(Object.values(documentElements)[y])
             Object.values(documentElements)[y].innerHTML = Object.values(attributeMods)[y]
         }
     }

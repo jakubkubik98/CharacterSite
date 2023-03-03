@@ -140,4 +140,16 @@ header {
   height: 25px;
 }
 
+#skillsSelection {
+  overflow-y: auto;
+  max-height: 400px;
+  border-bottom: solid gold 2px;
+  border-top: solid gold 2px;
+}
+
+#featSelection {
+  overflow-y: auto;
+  max-height: 400px;
+}
+
 /*# sourceMappingURL=main.css.map */
